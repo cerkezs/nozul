@@ -2,58 +2,60 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>IDM Mühendislik | 3D Teknik Sunum</title>
+    <title>IDM Mühendislik - 3D Ürün Kataloğu</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
-        body { margin: 0; background: #0a0a0a; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        body { margin: 0; background: #000; overflow-x: hidden; color: white; font-family: 'Segoe UI', sans-serif; }
         #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
         .content { position: relative; z-index: 2; pointer-events: none; }
-        section { height: 100vh; display: flex; align-items: center; padding-left: 10%; }
-        .card { background: rgba(0,0,0,0.9); padding: 30px; border-left: 6px solid #007bff; max-width: 400px; pointer-events: all; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        h2 { color: #007bff; margin: 0 0 15px 0; font-size: 2rem; }
+        section { height: 100vh; display: flex; align-items: center; padding-left: 5%; }
+        .card { background: rgba(0,0,0,0.9); padding: 25px; border-left: 5px solid #007bff; max-width: 380px; pointer-events: all; border-radius: 8px; }
+        h2 { color: #007bff; margin: 0 0 10px 0; font-size: 2.2rem; }
+        #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; justify-content: center; align-items: center; z-index: 999; }
     </style>
 </head>
 <body>
 
+<div id="loader"><h1>Sistem Hazırlanıyor...</h1></div>
 <div id="canvas-container"></div>
 
 <div class="content">
-    <section><div class="card"><h2>IDM 63</h2><p>Endüstriyel parçaların dijital yolculuğu başlıyor.</p></div></section>
-    <section><div class="card"><h2>Kare Bıçaklar</h2><p>Hassas karbür çelik teknolojisi ile maksimum ömür.</p></div></section>
-    <section><div class="card"><h2>Alt Bıçaklar</h2><p>Sarsılmaz sistemler için yüksek mukavemet.</p></div></section>
+    <section><div class="card"><h2>IDM 63</h2><p>Lojistikten üretime, kusursuz mühendislik akışı.</p></div></section>
+    <section><div class="card"><h2>Kare Bıçaklar</h2><p>Üstün kesim performansı için tasarlandı.</p></div></section>
+    <section><div class="card"><h2>Alt Bıçaklar</h2><p>Yüksek direnç ve tam uyum.</p></div></section>
 </div>
 
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputEncoding = THREE.sRGBEncoding;
     document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-    // --- STÜDYO IŞIKLANDIRMASI ---
-    scene.add(new THREE.AmbientLight(0xffffff, 0.8)); // Genel aydınlık
-    const spot1 = new THREE.SpotLight(0xffffff, 2);
-    spot1.position.set(10, 20, 10);
-    scene.add(spot1);
-    const spot2 = new THREE.SpotLight(0x007bff, 1.5); // IDM Mavisi dolgu ışığı
-    spot2.position.set(-10, -10, 10);
-    scene.add(spot2);
+    // --- PROFESYONEL IŞIKLANDIRMA ---
+    scene.add(new THREE.AmbientLight(0xffffff, 1.2)); // Yumuşak genel ışık
+    const light1 = new THREE.DirectionalLight(0xffffff, 2);
+    light1.position.set(5, 5, 5);
+    scene.add(light1);
+    const light2 = new THREE.PointLight(0x007bff, 1.5); // IDM Mavisi dolgu
+    light2.position.set(-5, 5, 2);
+    scene.add(light2);
 
-    // --- KUTU TASARIMI ---
+    // --- KUTU VE DOKU ---
     const tLoader = new THREE.TextureLoader();
     const boxMat = new THREE.MeshStandardMaterial({ 
         map: tLoader.load('kapalikutu.jpeg'),
-        roughness: 0.7
+        roughness: 0.8
     });
     const box = new THREE.Mesh(new THREE.BoxGeometry(4, 2.8, 2.8), boxMat);
+    box.position.y = -1; // Kutuyu biraz aşağı alalım
     scene.add(box);
 
     const loader = new THREE.GLTFLoader();
@@ -61,42 +63,39 @@
     draco.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
     loader.setDRACOLoader(draco);
 
-    function setupModel(url, sectionIdx, texUrl) {
+    function setupPart(url, sectionIdx, texUrl, scaleVal) {
         loader.load(url, (gltf) => {
             const model = gltf.scene;
             
-            // Materyalleri Parlat (Gerçek metal hissi)
+            // Metalik doku iyileştirmesi
             model.traverse((child) => {
                 if (child.isMesh) {
                     child.material = new THREE.MeshStandardMaterial({
-                        color: 0xcccccc,
-                        metalness: 0.9,
-                        roughness: 0.1
+                        color: 0x888888,
+                        metalness: 1,
+                        roughness: 0.15
                     });
                 }
             });
 
-            // Merkeze al ve konumlandır
+            // Otomatik merkezleme
             const b = new THREE.Box3().setFromObject(model);
             const center = b.getCenter(new THREE.Vector3());
             model.position.sub(center);
 
-            const container = new THREE.Group();
-            container.add(model);
-            scene.add(container);
+            const group = new THREE.Group();
+            group.add(model);
+            scene.add(group);
 
-            container.scale.set(1.5, 1.5, 1.5); // Ölçek sabitlendi
-            container.position.set(1, -8, 4); // Başta aşağıda
+            group.scale.set(scaleVal, scaleVal, scaleVal);
+            group.position.set(0, -10, 3); // Başlangıçta gizli
 
-            // Scroll Animasyonu
-            gsap.to(container.position, {
-                y: 0, 
-                z: 6,
+            // Scroll Animasyonu: Bıçağın kutunun "önüne" ve "yukarısına" süzülmesi
+            gsap.to(group.position, {
+                y: 1.5, z: 5,
                 scrollTrigger: {
                     trigger: `.content section:nth-child(${sectionIdx})`,
                     scrub: 1.5,
-                    start: "top bottom",
-                    end: "top top",
                     onEnter: () => {
                         boxMat.map = tLoader.load(texUrl);
                         boxMat.needsUpdate = true;
@@ -104,8 +103,7 @@
                 }
             });
             
-            // Dönüş
-            gsap.to(container.rotation, {
+            gsap.to(group.rotation, {
                 y: Math.PI * 2,
                 scrollTrigger: {
                     trigger: `.content section:nth-child(${sectionIdx})`,
@@ -115,23 +113,20 @@
         });
     }
 
-    setupModel('karebicak.glb', 2, 'karebicakkutu.jpeg');
-    setupModel('sabitkucuk.glb', 3, 'altbicakkutu.jpeg');
+    // Ölçekleri 0.1 gibi çok küçük rakamlara çektim çünkü SolidWorks modellerin devasa yüklenebiliyor.
+    setupPart('karebicak.glb', 2, 'karebicakkutu.jpeg', 0.1); 
+    setupPart('sabitkucuk.glb', 3, 'altbicakkutu.jpeg', 0.1);
 
-    camera.position.set(0, 1, 10);
+    camera.position.set(0, 2, 12);
+
+    window.onload = () => { document.getElementById('loader').style.display = 'none'; };
 
     function animate() {
         requestAnimationFrame(animate);
-        box.rotation.y += 0.002; // Hafif bir canlılık
+        box.rotation.y += 0.003;
         renderer.render(scene, camera);
     }
     animate();
-
-    window.onresize = () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    };
 </script>
 </body>
 </html>
