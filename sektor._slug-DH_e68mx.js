@@ -1,0 +1,1 @@
+import{j as e,L as t}from"./index-CKe0Oizk.js";const s=()=>e.jsxs("div",{className:"flex min-h-[60vh] flex-col items-center justify-center px-4 text-center",children:[e.jsx("h1",{className:"text-3xl font-bold",children:"Sektör bulunamadı"}),e.jsx(t,{to:"/",className:"mt-6 inline-flex items-center gap-2 text-primary",children:"Anasayfaya dön"})]});export{s as notFoundComponent};
