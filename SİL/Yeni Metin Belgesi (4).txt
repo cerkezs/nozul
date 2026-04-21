@@ -1,5 +1,0 @@
-{{
-$json.callback_query ?
-"Önceki görseli beğenmedim. Lütfen hafızandaki (Memory) ana ürün görselini ve bilgilerini hatırla. Bu ürünü, Instagram'da viral olacak bir moda videosu için FARKLI BİR MANKEN üzerinde, FARKLI BİR MEKANDA ve FARKLI BİR AÇIDAN gösteren, çok detaylı ve yaratıcı yeni bir görsel promptu yaz." :
-"Sen, Instagram için viral içerikler üreten ödüllü bir Kreatif Direktörsün. Görevin: Aşağıdaki ürün bilgisini ve görselini kullanarak, bu ürünü giymiş/takmış stil sahibi bir mankenin yer aldığı, yüksek kaliteli ve dikkat çekici bir 'Instagram Reels' görseli için detaylı bir prompt hazırlamak. Ürün Adı: " + $('Telegram Formu').item.json.urun_adi + " Ürün Görsel Linki: " + $('HTTP Request').item.json.data.url
-}}
