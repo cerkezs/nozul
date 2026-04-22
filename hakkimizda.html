@@ -65,6 +65,7 @@ details>summary::-webkit-details-marker{display:none}
 </style>
 </head>
 <body class="bg-white text-ink">
+
 <header class="sticky top-0 z-50 bg-white/85 backdrop-blur-lg border-b border-gray-100">
   <div class="max-w-[1650px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-3 font-display font-bold text-xl">
@@ -118,52 +119,52 @@ details>summary::-webkit-details-marker{display:none}
   </div>
 </header>
 <script>document.getElementById('mnav')?.addEventListener('click',()=>document.getElementById('mmenu')?.classList.toggle('hidden'));</script>
+
 <nav aria-label="Breadcrumb" class="border-b border-gray-100 bg-gray-50/50">
-  <div class="max-w-[1650px] mx-auto px-4 lg:px-8 py-3 flex flex-wrap items-center gap-1.5 text-xs text-gray-500">
-    <a href="index.html" class="hover:text-primary">Anasayfa</a>
-    <svg class="w-3 h-3 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
-    <span class="text-gray-900 font-medium">Hakkımızda</span>
-  </div>
+  <ol class="max-w-[1650px] mx-auto px-4 lg:px-8 py-3 flex flex-wrap items-center gap-1.5 text-xs text-gray-500"><li class="flex items-center gap-1.5"><a href="index.html" class="hover:text-primary">Anasayfa</a></li><li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg><span class="text-gray-900 font-medium">Hakkımızda</span></li></ol>
 </nav>
 
-<main class="py-16">
+<main>
+<section class="bg-gradient-hero text-white py-16">
   <div class="max-w-[1650px] mx-auto px-4 lg:px-8">
-    <section class="grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="text-xs font-semibold text-primary uppercase tracking-wider">HAKKIMIZDA</span>
-        <h1 class="font-display text-4xl md:text-5xl font-bold mt-2">2001'den beri konveyörde uzmanlık</h1>
-        <p class="mt-6 text-gray-600 leading-relaxed text-lg">Nozul Makina; mühendislik tabanlı tasarım, kaliteli üretim ve saha sonrası desteği bir araya getiren endüstriyel taşıma çözümleri üreticisidir.</p>
-        
-        <div class="mt-10">
-          <h2 class="font-display text-2xl font-bold">Hikâyemiz</h2>
-          <p class="mt-4 text-gray-600 leading-relaxed">2001 yılında Ankara'da kurulan Nozul Makina, ilk yıllarından itibaren sahaya özel mühendislik anlayışını benimsemiştir. Bugün gıda, madencilik, demir-çelik, çimento, lojistik ve savunma sanayinde 500'ü aşkın projeyi hayata geçirmiş bulunuyoruz.</p>
-          <p class="mt-3 text-gray-600 leading-relaxed">Anahtar teslim proje yönetimi, kaliteli yerli üretim ve garantili satış sonrası hizmet ile müşterilerimizin uzun vadeli iş ortağıyız.</p>
-        </div>
-      </div>
-      
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-surface rounded-2xl p-8"><div class="font-display text-4xl font-bold text-primary">24+</div><div class="text-sm text-gray-600 mt-2 font-medium">Yıllık tecrübe</div></div>
-        <div class="bg-surface rounded-2xl p-8"><div class="font-display text-4xl font-bold text-primary">500+</div><div class="text-sm text-gray-600 mt-2 font-medium">Proje teslimi</div></div>
-        <div class="bg-surface rounded-2xl p-8"><div class="font-display text-4xl font-bold text-primary">10+</div><div class="text-sm text-gray-600 mt-2 font-medium">Sektör Uzmanlığı</div></div>
-        <div class="bg-surface rounded-2xl p-8"><div class="font-display text-4xl font-bold text-primary">2 yıl</div><div class="text-sm text-gray-600 mt-2 font-medium">Üretim garantisi</div></div>
-      </div>
-    </section>
-
-    <section class="mt-24 grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft">
-        <h3 class="font-display font-bold text-xl text-ink">Mühendislik</h3>
-        <p class="mt-3 text-gray-600 leading-relaxed">Sahanızı dinler, ihtiyacınıza özel hesaplama ve tasarım yaparız. Solidworks ve simülasyon destekli projeler sunarız.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft">
-        <h3 class="font-display font-bold text-xl text-ink">Üretim</h3>
-        <p class="mt-3 text-gray-600 leading-relaxed">Kendi atölyemizde, sıkı kalite kontrol süreçleriyle sağlam üretim. En zorlu şartlara dayanıklı malzeme seçimi.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-soft">
-        <h3 class="font-display font-bold text-xl text-ink">Servis</h3>
-        <p class="mt-3 text-gray-600 leading-relaxed">Devreye alma, personel eğitimi, periyodik bakım ve hızlı yedek parça desteği ile her an yanınızdayız.</p>
-      </div>
-    </section>
+    <span class="text-xs font-semibold text-primary uppercase tracking-wider">Hakkımızda</span>
+    <h1 class="font-display text-4xl md:text-5xl font-bold mt-2">2001'den beri konveyörde uzmanlık</h1>
+    <p class="mt-3 max-w-2xl text-gray-300">Nozul Makina; mühendislik tabanlı tasarım, kaliteli üretim ve saha sonrası desteği bir araya getiren endüstriyel taşıma çözümleri üreticisidir.</p>
   </div>
+</section>
+
+<section class="py-16">
+  <div class="max-w-[1650px] mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="font-display text-2xl font-bold">Hikâyemiz</h2>
+      <p class="mt-4 text-gray-600 leading-relaxed">2001 yılında Ankara'da kurulan Nozul Makina, ilk yıllarından itibaren sahaya özel mühendislik anlayışını benimsemiştir. Bugün gıda, madencilik, demir-çelik, çimento, lojistik ve savunma sanayinde 500'ü aşkın projeyi hayata geçirmiş bulunuyoruz.</p>
+      <p class="mt-3 text-gray-600 leading-relaxed">Anahtar teslim proje yönetimi, kaliteli yerli üretim ve garantili satış sonrası hizmet ile müşterilerimizin uzun vadeli iş ortağıyız.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-surface rounded-2xl p-6"><div class="font-display text-3xl font-bold text-primary">24+</div><div class="text-sm text-gray-600 mt-1">Yıllık tecrübe</div></div>
+      <div class="bg-surface rounded-2xl p-6"><div class="font-display text-3xl font-bold text-primary">500+</div><div class="text-sm text-gray-600 mt-1">Proje teslimi</div></div>
+      <div class="bg-surface rounded-2xl p-6"><div class="font-display text-3xl font-bold text-primary">10+</div><div class="text-sm text-gray-600 mt-1">Sektör</div></div>
+      <div class="bg-surface rounded-2xl p-6"><div class="font-display text-3xl font-bold text-primary">2 yıl</div><div class="text-sm text-gray-600 mt-1">Üretim garantisi</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-surface">
+  <div class="max-w-[1650px] mx-auto px-4 lg:px-8 grid md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-soft">
+      <h3 class="font-display font-semibold text-lg">Mühendislik</h3>
+      <p class="mt-2 text-gray-600">Sahanızı dinler, ihtiyacınıza özel hesaplama ve tasarım yaparız.</p>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-soft">
+      <h3 class="font-display font-semibold text-lg">Üretim</h3>
+      <p class="mt-2 text-gray-600">Kendi atölyemizde, kalite kontrol süreçleriyle sağlam üretim.</p>
+    </div>
+    <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-soft">
+      <h3 class="font-display font-semibold text-lg">Servis</h3>
+      <p class="mt-2 text-gray-600">Devreye alma, eğitim, periyodik bakım ve hızlı yedek parça.</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="bg-ink text-gray-300 mt-20">
