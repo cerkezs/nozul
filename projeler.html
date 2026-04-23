@@ -69,9 +69,9 @@ details>summary::-webkit-details-marker{display:none}
 <header class="sticky top-0 z-50 bg-white/85 backdrop-blur-lg border-b border-gray-100">
   <div class="max-w-[1650px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
     
-    <a href="index.html" class="flex items-center gap-3 font-display font-bold text-xl">
-      <span class="w-11 h-11 rounded-xl bg-gradient-primary text-white grid place-items-center font-black shadow-soft text-xl">N</span>
-      <span>Nozul<span class="text-primary">Makina</span></span>
+    <a href="index.html" class="flex items-center gap-3 font-display font-bold text-xl leading-none">
+      <img src="nozul-monogram.png" alt="Nozul Makina Logo" class="h-12 w-12 object-contain shrink-0">
+      <span class="flex items-center">Nozul<span class="text-primary">Makina</span></span>
     </a>
 
     <nav class="hidden lg:flex items-center gap-2">
@@ -106,8 +106,7 @@ details>summary::-webkit-details-marker{display:none}
         </div>
       </div>
 
-      <a href="projeler.html" class="px-4 py-2.5 rounded-md text-base font-semibold text-primary transition">Projeler</a>
-      
+      <a href="projeler.html" class="px-4 py-2.5 rounded-md text-base font-semibold text-primary bg-primary-50 transition font-bold">Projeler</a>
       <a href="referanslar.html" class="px-4 py-2.5 rounded-md text-base font-semibold transition text-gray-700 hover:text-primary hover:bg-gray-50">Referanslar</a>
       <a href="iletisim.html" class="px-4 py-2.5 rounded-md text-base font-semibold transition text-gray-700 hover:text-primary hover:bg-gray-50">İletişim</a>
     </nav>
@@ -119,9 +118,20 @@ details>summary::-webkit-details-marker{display:none}
       </a>
       <a href="teklif-al.html" class="hidden md:inline-flex bg-gradient-primary text-white px-6 py-2.5 rounded-md text-base font-bold shadow-soft hover:shadow-elegant transition">Teklif Al</a>
       
-      <button id="mnav" class="lg:hidden w-12 h-12 grid place-items-center rounded-md text-gray-700" aria-label="Menü">
+      <button id="mnav" class="lg:hidden w-12 h-12 grid place-items-center rounded-md text-ink">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
+    </div>
+  </div>
+  <div id="mmenu" class="hidden lg:hidden border-t border-gray-100 bg-white px-4 py-3">
+    <div class="flex flex-col gap-1">
+      <a href="index.html" class="px-3 py-2.5 rounded-md hover:bg-gray-50">Anasayfa</a>
+      <a href="hakkimizda.html" class="px-3 py-2.5 rounded-md hover:bg-gray-50">Hakkımızda</a>
+      <a href="urunler.html" class="px-3 py-2.5 rounded-md hover:bg-gray-50">Ürünler</a>
+      <a href="projeler.html" class="px-3 py-2.5 rounded-md bg-primary-50 text-primary font-medium">Projeler</a>
+      <a href="referanslar.html" class="px-3 py-2.5 rounded-md hover:bg-gray-50">Referanslar</a>
+      <a href="iletisim.html" class="px-3 py-2.5 rounded-md hover:bg-gray-50">İletişim</a>
+      <a href="teklif-al.html" class="mt-2 bg-gradient-primary text-white px-4 py-3 rounded-md text-center font-semibold">Teklif Al</a>
     </div>
   </div>
 </header>
